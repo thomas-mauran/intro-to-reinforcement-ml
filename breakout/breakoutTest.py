@@ -4,7 +4,7 @@ from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.env_util import make_atari_env
 from stable_baselines3.common.vec_env import VecFrameStack
 import time
-A2C_Path = os.path.join("Training",  'breakout', 'Saved_Models', 'A2C')
+A2C_Path = os.path.join("files", 'Saved_Models', 'A2C')
 
 env = make_atari_env('Breakout-v0', n_envs=1, seed=0)
 env = VecFrameStack(env, n_stack=10)

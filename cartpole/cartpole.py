@@ -29,7 +29,7 @@ episodes = 5
 #     print ("Episode: {} Score: {}".format(episode, score))
 # env.close()
 
-log_path = os.path.join('Training','cartpole', 'Logs')
+log_path = os.path.join('files', 'Logs')
 
 env = gym.make(environment_name)
 
@@ -38,7 +38,7 @@ env = DummyVecEnv([lambda: env])
  
 
 # Training callback = way to stop the trzining if the reward is maxed before the end for example
-save_path = os.path.join('Training', 'cartpole', 'Saved_Models')
+save_path = os.path.join('files', 'Saved_Models')
 stop_callback = StopTrainingOnRewardThreshold(reward_threshold=200, verbose=1)
 
 # Every 10.000 steps it will save the best modle and check if we haven't passed the best reward callback
@@ -49,7 +49,7 @@ model = DQN('MlpPolicy', env, verbose=1, tensorboard_log=log_path)
 
 model.learn(total_timesteps=20000, callback=eval_callback)
 
-PPO_Path = os.path.join("Training",  'cartpole', 'Saved_Models', 'PPO_Model_Cartpole')
+PPO_Path = os.path.join("files", 'Saved_Models', 'PPO_Model_Cartpole')
 # model.save(PPO_Path)
 
 # To load tyhe model
